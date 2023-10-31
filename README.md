@@ -6,17 +6,16 @@ Bu proje, sprint 7 gün 2'de öğrenilen kavram ve teknikleri uygulamanıza ve b
 
 Bu projede, takım üyelerini takip eden bir uygulama ayağa kaldıracaksın ve yapacaksın. Yeni takım oyuncusu ekleyebilecek ve hatta oyuncu detaylarını düzenleyebileceksin. İş akış mantığı (bussiness logic) için [linkteki](https://www.figma.com/file/AZhATY5zVq2teTzKJgCX8Q/S7G2?type=whiteboard&node-id=0%3A1&t=VeMRfMIHR7moH2zc-1) diagramı inceleyin Component ve Data Akış Diagramı. Bu diagram uygulamadaki componentler arasındaki ilişki göstermektedir. Ayrıca componentlerdeki veri iletişimi de detaylı olarak görselleştirilmiştir. Elinizdeki veri hangi componentten hangi componente yönlendirilmeli veya methodlar hangi component içinde tanımlanıp, hangi componente prop olarak aktarılmalı gibi soruların cevaplarını bulabilirsiniz. Lütfen diagramı okumaya başlamadan önce, diagramdaki nesnelerin ne anlama geldiğini ifade eden tabloyu (yine diagram içinde sol tarafta) inceleyiniz.
 
-
 ## Giriş
 
 ### Görev 1: Proje Kurulumu
 
-- [ ] Projeyi forklayarak bir kopyasını oluşturun.
-- [ ] Forku klonlayın
-- [ ] `npx create-react-app .` komutuyla projeyi oluşturun (SONDAKİ NOKTAYA DİKKAT EDİN!) .
-- [ ] `npm start` komutuyla projeyi başlatın
-- [ ] Projeyi oluşturduğunuz reponun `main` branchi üzerinde commitleyin.
-- [ ] Commitlerinizi pushlayın: git push origin `main`.
+- [x] Projeyi forklayarak bir kopyasını oluşturun.
+- [x] Forku klonlayın
+- [x] `npx create-react-app .` komutuyla projeyi oluşturun (SONDAKİ NOKTAYA DİKKAT EDİN!) .
+- [x] `npm start` komutuyla projeyi başlatın
+- [x] Projeyi oluşturduğunuz reponun `main` branchi üzerinde commitleyin.
+- [x] Commitlerinizi pushlayın: git push origin `main`.
 
 ### Görev 2: MVP (MUÜ)
 
@@ -40,20 +39,20 @@ Bu projede, takım üyelerini takip eden bir uygulama ayağa kaldıracaksın ve 
 
 ### Görev 3: Düzenleme özelliği ekleyin (ESNEK)
 
-Daha sonra ekip üyelerini düzenlemek için `Form` bileşenini yeniden kullanacağız. 
+Daha sonra ekip üyelerini düzenlemek için `Form` bileşenini yeniden kullanacağız.
 Bu hedefe tamamen kendi başına ulaşmayı deneyebilir veya aşağıdaki adımları takip edebilirsin. Bu adımlar, `Form` unun kendi state'ini koruduğunu varsayar.
 
 #### App.js'yi üye güncellemek için hazırlama
 
-- [ ] Oluşturduğun her üyenin yanına bir düzenleme butonu veya bir düzenleme simgesi(icon) ekleyin. 
-Buton/simge tıklandığında, o üyeyi `App`da `duzenlenecekUye` adlı bir state'e aktarmak istiyoruz. Bunu yapacak fonksiyon, onu çağıran düğme/simge farklı bir bileşende olsa bile `App` içinde tanımlanmalıdır. Fonksiyonu alt bileşene proplarla aktarın.
+- [ ] Oluşturduğun her üyenin yanına bir düzenleme butonu veya bir düzenleme simgesi(icon) ekleyin.
+      Buton/simge tıklandığında, o üyeyi `App`da `duzenlenecekUye` adlı bir state'e aktarmak istiyoruz. Bunu yapacak fonksiyon, onu çağıran düğme/simge farklı bir bileşende olsa bile `App` içinde tanımlanmalıdır. Fonksiyonu alt bileşene proplarla aktarın.
 
 #### Form.js'yi üye güncellemek için hazırlama
 
 - [ ] `duzenlenecekUye` state ini `Form.js` ye aktarın
-- [ ] Eğer `Form`, `props.duzenlenecekUye` 'yi alırsa, o zaman bu üye nesnesi formu kontrol eden state nesnenizi dolduracak. 
-Şimdi, formumuzdan tıklanan üyeyi düzenlemek için böyle bir şey yapmak cazip gelebilir: `const [uye, setUye] = useState(props.duzenlenecekUye || {isim: '', email: '', rol: ''})` . 
-Ancak bu, uygulamamızda oldukça büyük bir hataya neden olacak bir tuzaktır. Prop'lar state'i bu şekilde ayarlamak için kullanılıyorsa, prop değiştiğinde state özelliği GÜNCELLENMEYECEKTİR. Yani... bir şeyi proplar değiştiğinde uyumlu tutmak için ne tür bir teknik öğrendik? `useEffect`! `props.duzenlenecekUye` yi uyumlu tutabilmek için bir effect yazın. `props.duzenlenecekUye` değiştiğinde, effect `uye` state nesnesini yeni veriyle güncelleyecek. Bu, inputları güncellemeye çalıştığımız üye bilgileriyle dolduracaktır.
+- [ ] Eğer `Form`, `props.duzenlenecekUye` 'yi alırsa, o zaman bu üye nesnesi formu kontrol eden state nesnenizi dolduracak.
+      Şimdi, formumuzdan tıklanan üyeyi düzenlemek için böyle bir şey yapmak cazip gelebilir: `const [uye, setUye] = useState(props.duzenlenecekUye || {isim: '', email: '', rol: ''})` .
+      Ancak bu, uygulamamızda oldukça büyük bir hataya neden olacak bir tuzaktır. Prop'lar state'i bu şekilde ayarlamak için kullanılıyorsa, prop değiştiğinde state özelliği GÜNCELLENMEYECEKTİR. Yani... bir şeyi proplar değiştiğinde uyumlu tutmak için ne tür bir teknik öğrendik? `useEffect`! `props.duzenlenecekUye` yi uyumlu tutabilmek için bir effect yazın. `props.duzenlenecekUye` değiştiğinde, effect `uye` state nesnesini yeni veriyle güncelleyecek. Bu, inputları güncellemeye çalıştığımız üye bilgileriyle dolduracaktır.
 
 Düzenleme akışını kavramsallaştırmak zordur. Şöyle devam edelim:
 
@@ -70,7 +69,7 @@ Bu, şimdiye kadar yaptığımız en ilginç mimari parça... Ekip üyesi ekleme
 Tamam, şimdi `Form.js`'miz düzenleme mi yapacak yoksa ekleme mi yapacak biliyor, şimdi uygulamayı bitirebiliriz!
 
 - [ ] `App.js` içinde `uyeDuzenle` adında bir fonksiyon oluşturun. Bu fonksiyon bir ya da birden fazla takım üyesi bilgisini düzenleyip daha aşağıdaki bir bileşene bilgileri aktarsın. State'inizdeki veriniz için bir döngü oluşturmak, istenen takım üyesine ait nesneyi bulmak ve bilgileri güncellemek için bir yol bulmalısınız. `.map()` metodu bu görev için arkadaşınız olabilir. Verilerinizi doğrudan değiştirmekten de kaçınmalısınız. `...` yayılma operatörü bu noktada arkadaşınız olacak.
-- [ ] Formu gönderirken `if` le `duzenlenecekUye` propu orada mı değil mi kontrol edin, buna göre doğru fonksiyonu çalıştırmak için  `if`  `else` bloklarıyla kontrolünüzü gerçekleştirin.
+- [ ] Formu gönderirken `if` le `duzenlenecekUye` propu orada mı değil mi kontrol edin, buna göre doğru fonksiyonu çalıştırmak için `if` `else` bloklarıyla kontrolünüzü gerçekleştirin.
 
 Yeniden kullanılabilirliğin gücünü gözlemleyin!
 
@@ -78,9 +77,8 @@ Yeniden kullanılabilirliğin gücünü gözlemleyin!
 
 Gerekli görevleri bitirdikten sonra çalışmanı daha da ileri götürebilirsin. Bu hedefler, bu modülde öğrendiğin şeyler olabilir veya olmayabilir, ancak az önce çalıştığınız materyal üzerine inşa edilirler. Zaman tanıyın, sınırlarınızı zorlayın ve aşağıdaki isteğe bağlı hedeflere ulaşıp ulaşamayacağınıza bakın:
 
-- [ ] Üyeleri düzenlemek için yukarıdaki adımları izleyin. Bunu yapmak zordur ve mimarisi de zordur. Ama pratik yapmak için harika bir projedir! 
-Uygulama ayrıntılarına ve mimariye dikkat edin. Bunu başarmanın birçok yolu var. Bitirdiğinizde, başka bir yol düşünebilir misiniz?
+- [ ] Üyeleri düzenlemek için yukarıdaki adımları izleyin. Bunu yapmak zordur ve mimarisi de zordur. Ama pratik yapmak için harika bir projedir!
+      Uygulama ayrıntılarına ve mimariye dikkat edin. Bunu başarmanın birçok yolu var. Bitirdiğinizde, başka bir yol düşünebilir misiniz?
 - [ ] Her biri kendi ekip üyeleri listesine sahip birden çok ekibi takip edebilmeniz için Uygulamanızın başka bir katmanını oluşturun.
 - [ ] Form validation hakkındaki çeşitli stratejileri inceleyin. Ekip üyelerinin adı olarak bir sayı girmeye çalışırsanız ne olur? Appiniz buna izin verir mi? Öyle mi? Fieldlardan birinin değerine bir fonksiyon girerseniz ne olur? Bu ne kadar tehlikeli olur? Bunu nasıl engellersin?
 - [ ] Formları stilleyin. Input etiketleri için statelerine göre üzerine yazılması gerekebilecek bazı tarayıcı varsayılanları vardır (active, focus, hover, vb.); Bu CSS özelliklerini şık hale getirin.
-
