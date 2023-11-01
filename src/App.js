@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Header from "./Layout/Header";
+import TeamCard from "./Pages/TeamCard";
+import { Switch, Route } from "react-router-dom";
+import { useState } from "react";
+
+import Members from "./components/Members";
 
 function App() {
+  const [teamlist, setTeamlist] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <Switch>
+        <Route path="/" exact>
+          {teamlist?.map((member, index) => (
+            <Members key={index} list={member} />
+          ))}
+        </Route>
+        <Route path="/createform/" exact>
+          <TeamCard teamlistdizi={teamlist} setTeamlist={setTeamlist} />
+        </Route>
+      </Switch>
     </div>
   );
 }
