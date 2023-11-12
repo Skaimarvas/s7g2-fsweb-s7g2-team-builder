@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-const TeamCard = ({ teamlistdizi, setTeamlist }) => {
+const TeamCard = ({
+  teamlistdizi,
+  setTeamlist,
+  duzenlenecekuye,
+  uyeDuzenle,
+}) => {
   const [newMember, setNewMember] = useState({
     name: "",
     email: "",
@@ -10,25 +15,28 @@ const TeamCard = ({ teamlistdizi, setTeamlist }) => {
   });
 
   const { name, email, rol } = newMember;
-  console.log("TeamCard", teamlistdizi);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log("İsim Soyisim", name);
-    console.log("Email", email);
-    console.log("Rol", rol);
-
-    console.log("handleTeamlist", teamlistdizi);
-
     const newTeamMember = { name, email, rol };
-    console.log("handleTeamlist NewTeam", newTeamMember);
 
-    setTeamlist([...teamlistdizi, newTeamMember]);
-    setNewMember({
-      name: "",
-      email: "",
-      rol: "",
-    });
+    if (duzenlenecekuye) {
+      uyeDuzenle(newTeamMember);
+      setNewMember({
+        name: "",
+        email: "",
+        rol: "",
+      });
+      console.log("Çalışıyor mu?", uyeDuzenle);
+    } else {
+      setTeamlist([...teamlistdizi, newTeamMember]);
+      setNewMember({
+        name: "",
+        email: "",
+        rol: "",
+      });
+    }
+    // Submit edildikten sonra form sıfırlanıyor
   };
 
   const inputChangeHandler = (e) => {
@@ -39,6 +47,11 @@ const TeamCard = ({ teamlistdizi, setTeamlist }) => {
     });
   };
 
+  useEffect(() => {
+    duzenlenecekuye && setNewMember(duzenlenecekuye);
+    console.log("Düzenlenecek Uye ", duzenlenecekuye);
+  }, [duzenlenecekuye]);
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>
@@ -48,7 +61,7 @@ const TeamCard = ({ teamlistdizi, setTeamlist }) => {
             id="name"
             name="name"
             type="text"
-            value={teamlistdizi.name}
+            value={newMember.name}
             onChange={inputChangeHandler}
           />
         </Form.Group>
@@ -58,7 +71,7 @@ const TeamCard = ({ teamlistdizi, setTeamlist }) => {
             id="email"
             name="email"
             type="email"
-            value={teamlistdizi.email}
+            value={newMember.email}
             onChange={inputChangeHandler}
           />
         </Form.Group>
@@ -68,7 +81,7 @@ const TeamCard = ({ teamlistdizi, setTeamlist }) => {
             id="rol"
             name="rol"
             type="text"
-            value={teamlistdizi.rol}
+            value={newMember.rol}
             onChange={inputChangeHandler}
           />
         </Form.Group>
