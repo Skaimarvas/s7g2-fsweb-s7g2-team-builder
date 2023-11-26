@@ -7,6 +7,7 @@ const TeamCard = ({
   setTeamlist,
   duzenlenecekuye,
   uyeDuzenle,
+  setDuzenlenecekuye,
 }) => {
   const [newMember, setNewMember] = useState({
     name: "",
@@ -27,7 +28,7 @@ const TeamCard = ({
         email: "",
         rol: "",
       });
-      console.log("Çalışıyor mu?", uyeDuzenle);
+      setDuzenlenecekuye("");
     } else {
       setTeamlist([...teamlistdizi, newTeamMember]);
       setNewMember({

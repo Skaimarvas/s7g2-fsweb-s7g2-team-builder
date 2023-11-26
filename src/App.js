@@ -24,6 +24,7 @@ function App() {
         teamlistdizi={teamlist}
         setTeamlist={setTeamlist}
         duzenlenecekuye={duzenlenecekuye}
+        setDuzenlenecekuye={setDuzenlenecekuye}
         uyeDuzenle={uyeDuzenle}
       />
 
@@ -32,7 +33,6 @@ function App() {
         <Members
           key={index}
           member={member}
-          duzenlenecekuye={duzenlenecekuye}
           setDuzenlenecekuye={setDuzenlenecekuye}
         />
       ))}
