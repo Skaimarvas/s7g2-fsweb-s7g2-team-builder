@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-
+import { Row } from "react-bootstrap";
+import Col from "react-bootstrap";
+import { nanoid } from "nanoid";
 const TeamCard = ({
   teamlistdizi,
   setTeamlist,
@@ -55,7 +57,7 @@ const TeamCard = ({
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form className="formclass" onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="name">İsim Soyisim</Form.Label>
           <Form.Control
@@ -78,13 +80,19 @@ const TeamCard = ({
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="rol">Rol</Form.Label>
-          <Form.Control
-            id="rol"
-            name="rol"
-            type="text"
-            value={newMember.rol}
-            onChange={inputChangeHandler}
-          />
+          <Form.Select
+            className="option"
+            value={rol}
+            defaultValue="..."
+            onChange={(e) =>
+              setNewMember({ ...newMember, rol: e.target.value })
+            }
+          >
+            <option value="...">...</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="Data Analist">Data Analist</option>
+          </Form.Select>
         </Form.Group>
         <button className="btn btn-primary" type="submit">
           Kaydet

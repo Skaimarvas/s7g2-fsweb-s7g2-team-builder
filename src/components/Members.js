@@ -3,11 +3,9 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 const Members = ({ member, setDuzenlenecekuye }) => {
-  console.log("Props", member);
-
   return (
     <div>
-      <Card style={{ width: "90%", margin: "0 auto" }}>
+      <Card style={{ width: "18rem" }}>
         <Card.Body>
           <Card.Title>
             <h3> {member.name} </h3>{" "}
