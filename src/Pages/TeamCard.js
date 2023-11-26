@@ -24,7 +24,8 @@ const TeamCard = ({
     const newTeamMember = { name, email, rol };
 
     if (duzenlenecekuye) {
-      uyeDuzenle(newTeamMember);
+      uyeDuzenle(newMember);
+
       setNewMember({
         name: "",
         email: "",
@@ -32,7 +33,7 @@ const TeamCard = ({
       });
       setDuzenlenecekuye("");
     } else {
-      setTeamlist([...teamlistdizi, newTeamMember]);
+      setTeamlist([...teamlistdizi, { ...newTeamMember, id: nanoid() }]);
       setNewMember({
         name: "",
         email: "",
@@ -52,7 +53,6 @@ const TeamCard = ({
 
   useEffect(() => {
     duzenlenecekuye && setNewMember(duzenlenecekuye);
-    console.log("Düzenlenecek Uye ", duzenlenecekuye);
   }, [duzenlenecekuye]);
 
   return (

@@ -19,10 +19,11 @@ function App() {
   );
   const DataDev = teamlist.filter((data) => data.rol === "Data Analist");
 
-  const uyeDuzenle = (duzenlenecekuye) => {
+  const uyeDuzenle = (duzen) => {
     const updatedMember = teamlist.map((member) =>
-      member.email === duzenlenecekuye.email ? duzenlenecekuye : member
+      member.id === duzen.id ? duzen : member
     );
+
     setTeamlist(updatedMember);
   };
 

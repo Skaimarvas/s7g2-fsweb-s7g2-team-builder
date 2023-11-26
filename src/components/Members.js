@@ -22,7 +22,6 @@ const Members = ({ member, setDuzenlenecekuye }) => {
             variant="primary"
             onClick={() => {
               setDuzenlenecekuye(member);
-              console.log("Member Güncelle Butonu", member);
             }}
           >
             Güncelle
