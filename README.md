@@ -80,5 +80,5 @@ Gerekli görevleri bitirdikten sonra çalışmanı daha da ileri götürebilirsi
 - [x] Üyeleri düzenlemek için yukarıdaki adımları izleyin. Bunu yapmak zordur ve mimarisi de zordur. Ama pratik yapmak için harika bir projedir!
       Uygulama ayrıntılarına ve mimariye dikkat edin. Bunu başarmanın birçok yolu var. Bitirdiğinizde, başka bir yol düşünebilir misiniz?
 - [x] Her biri kendi ekip üyeleri listesine sahip birden çok ekibi takip edebilmeniz için Uygulamanızın başka bir katmanını oluşturun.
-- [ ] Form validation hakkındaki çeşitli stratejileri inceleyin. Ekip üyelerinin adı olarak bir sayı girmeye çalışırsanız ne olur? Appiniz buna izin verir mi? Öyle mi? Fieldlardan birinin değerine bir fonksiyon girerseniz ne olur? Bu ne kadar tehlikeli olur? Bunu nasıl engellersin?
+- [x] Form validation hakkındaki çeşitli stratejileri inceleyin. Ekip üyelerinin adı olarak bir sayı girmeye çalışırsanız ne olur? Appiniz buna izin verir mi? Öyle mi? Fieldlardan birinin değerine bir fonksiyon girerseniz ne olur? Bu ne kadar tehlikeli olur? Bunu nasıl engellersin?
 - [x] Formları stilleyin. Input etiketleri için statelerine göre üzerine yazılması gerekebilecek bazı tarayıcı varsayılanları vardır (active, focus, hover, vb.); Bu CSS özelliklerini şık hale getirin.

@@ -45,10 +45,13 @@ const TeamCard = ({
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
-    setNewMember({
-      ...newMember,
-      [name]: value,
-    });
+    setNewMember((prevMember) => ({
+      ...prevMember,
+      [name]:
+        name === "name"
+          ? value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/gi, "")
+          : value,
+    }));
   };
 
   useEffect(() => {
